@@ -1,0 +1,14 @@
+SE,1
+SA,1
+SQ,16
+SQ,128
+ST,253
+
+
+encryption
+authentication
+low latency
+config timer
+
+
+253 Continous config LOCAL only
