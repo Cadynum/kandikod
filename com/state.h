@@ -1,11 +1,11 @@
 #pragma once
 #include <Arduino.h>
 
-#define FINGERS 3
+#define SENSORS 6
 
 //Always aligned because of byte
 struct Control {
-	byte rot[FINGERS];
-	byte bend[FINGERS];
+	byte flex[SENSORS];
 	void print(HardwareSerial *s);
+	void print(Serial_ *s);
 };
