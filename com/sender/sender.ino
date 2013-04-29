@@ -9,6 +9,9 @@ const int cal_high = 3;
 
 const int pin_flex[] = {A0, A1, A2, A3, A4, A5};
 
+const int low_bound[] = {50, 30, 159, 50, 30, 30};
+const int high_bound[] = {98, 115, 90, 160, 120, 150};
+
 unsigned int ref_low[SENSORS];
 unsigned int ref_high[SENSORS];
 Control ctl;
@@ -57,7 +60,7 @@ void loop() {
 		val = constrain(val, ref_low[i], ref_high[i]);
 		ctl.flex[i] = map(val
 			, ref_low[i], ref_high[i]
-			, 25, 159);
+			, low_bound[i], high_bound[i]);
 	}
 
 

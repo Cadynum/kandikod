@@ -41,8 +41,6 @@ void loop() {
 		ang = 0;
 	}
 
-	delay(100);
-
 	// while (bt.available()) {
 	// 	tty.print(bt.read());
 	// }
