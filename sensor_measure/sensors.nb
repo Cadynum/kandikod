@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     21742,        529]
-NotebookOptionsPosition[     20556,        493]
-NotebookOutlinePosition[     20891,        508]
-CellTagsIndexPosition[     20848,        505]
+NotebookDataLength[     19374,        448]
+NotebookOptionsPosition[     18855,        427]
+NotebookOutlinePosition[     19190,        442]
+CellTagsIndexPosition[     19147,        439]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -35,10 +37,11 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"data", " ", "=", " ", 
-   RowBox[{"1024", "-", 
+   RowBox[{"1023", "-", 
     RowBox[{"Import", "[", 
-     RowBox[{"\"\<samples2\>\"", ",", " ", "\"\<List\>\""}], "]"}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+     RowBox[{
+     "\"\<~/kandikod/sensor_measure/samples2\>\"", ",", " ", "\"\<List\>\""}],
+      "]"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"sr", " ", "=", " ", "100"}], ";"}], "\[IndentingNewLine]", 
@@ -71,6 +74,17 @@ Cell[BoxData[{
      "\[IndentingNewLine]", ",", " ", 
      RowBox[{"Filling", "\[Rule]", "Axis"}]}], "\[IndentingNewLine]", "]"}], 
    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ButterworthFilterModel", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", " ", "101"}], "}"}], ",", " ", "s"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ToDiscreteTimeModel", "[", 
+  RowBox[{"%", ",", " ", 
+   RowBox[{"1", "/", "srr"}], ",", " ", "z"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"%", " ", "//", "InputForm"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
@@ -214,14 +228,99 @@ Cell[BoxData[{
    3.576322245388855*^9}, {3.5763223023957443`*^9, 3.576322353679332*^9}, {
    3.576322418629471*^9, 3.5763224780989656`*^9}, {3.576322516367716*^9, 
    3.576322541540978*^9}, {3.5763226062259417`*^9, 3.576322606334982*^9}, {
-   3.576322651578087*^9, 3.576322655905061*^9}, 3.576322712641985*^9}],
+   3.576322651578087*^9, 3.576322655905061*^9}, 3.576322712641985*^9, {
+   3.576777539680635*^9, 3.5767775658074636`*^9}, {3.5767776035349007`*^9, 
+   3.57677760563034*^9}, {3.576777663029231*^9, 3.576777663204624*^9}, {
+   3.5767777145392227`*^9, 3.576777799644553*^9}, {3.576777865914963*^9, 
+   3.5767779169800463`*^9}, {3.576777949232545*^9, 3.576777980265635*^9}, {
+   3.576778518270496*^9, 3.576778518430086*^9}, {3.57677857283722*^9, 
+   3.57677858468719*^9}, {3.57677864883394*^9, 3.576778653206221*^9}, {
+   3.576779324032897*^9, 3.576779325440034*^9}, {3.57677950553799*^9, 
+   3.576779531920806*^9}, {3.57678064771949*^9, 3.576780647806987*^9}}],
 
-Cell[CellGroupData[{
+Cell[BoxData[
+ InterpretationBox[
+  TemplateBox[{FractionBox["101", 
+     RowBox[{"101", "+", "s"}]],InterpretationBox["\[InvisibleSpace]", None]},
+   
+   "TransferFunctionModel",
+   DisplayFunction->(SubsuperscriptBox[
+     RowBox[{"(", 
+       GridBox[{{
+          TemplateSlotSequence[{1, 1}]}}, AllowedDimensions -> {1, 1}, 
+        AutoDelete -> False, AllowScriptLevelChange -> False, 
+        ColumnAlignments -> {Center}, BaseStyle -> {Deployed -> False}, 
+        GridBoxItemStyle -> {}, 
+        GridBoxDividers -> {
+         "Rows" -> {False, {False}, False}, 
+          "Columns" -> {False, {False}, False}}], ")"}], #2, 
+     "\[ScriptCapitalT]", MultilineFunction -> None]& ),
+   InterpretationFunction->(
+    RowBox[{"TransferFunctionModel", "[", "Unevaluated", "[", 
+      RowBox[{"{", 
+        RowBox[{"{", 
+          TemplateSlotSequence[{1, 1}, ","], "}"}], "}"}], "]", ",", "s", ",",
+       "SamplingPeriod", "->", 
+      RowBox[{#2}], ",", "SystemsModelLabels", "->", "None", "]"}]& )],
+  TransferFunctionModel[{{{101}}, {{101 + $CellContext`s}}}, $CellContext`s],
+  AutoDelete->True,
+  Editable->True]], "Output",
+ CellChangeTimes->{
+  3.57677741481033*^9, {3.5767775257557173`*^9, 3.576777566932007*^9}, 
+   3.576777606237468*^9, 3.576777664400688*^9, {3.576777717906452*^9, 
+   3.576777800015822*^9}, {3.5767778701717987`*^9, 3.576777917634864*^9}, {
+   3.576777949784347*^9, 3.576777980625812*^9}, 3.576778518734131*^9, {
+   3.576778577303689*^9, 3.576778585025364*^9}, 3.576778653550989*^9, 
+   3.576779326203541*^9, {3.5767795063335323`*^9, 3.576779532203717*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TemplateBox[{FractionBox[
+     RowBox[{"101", " ", 
+       RowBox[{"(", 
+         RowBox[{"1", "+", "z"}], ")"}]}], 
+     RowBox[{"101", "-", 
+       RowBox[{"2", " ", "srr"}], "+", 
+       RowBox[{"101", " ", "z"}], "+", 
+       RowBox[{"2", " ", "srr", " ", "z"}]}]],FractionBox["1", "srr"]},
+   "TransferFunctionModel",
+   DisplayFunction->(SubsuperscriptBox[
+     RowBox[{"(", 
+       GridBox[{{
+          TemplateSlotSequence[{1, 1}]}}, AllowedDimensions -> {1, 1}, 
+        AutoDelete -> False, AllowScriptLevelChange -> False, 
+        ColumnAlignments -> {Center}, BaseStyle -> {Deployed -> False}, 
+        GridBoxItemStyle -> {}, 
+        GridBoxDividers -> {
+         "Rows" -> {False, {False}, False}, 
+          "Columns" -> {False, {False}, False}}], ")"}], #2, 
+     "\[ScriptCapitalT]", MultilineFunction -> None]& ),
+   InterpretationFunction->(
+    RowBox[{"TransferFunctionModel", "[", "Unevaluated", "[", 
+      RowBox[{"{", 
+        RowBox[{"{", 
+          TemplateSlotSequence[{1, 1}, ","], "}"}], "}"}], "]", ",", "z", ",",
+       "SamplingPeriod", "->", 
+      RowBox[{#2}], ",", "SystemsModelLabels", "->", "None", "]"}]& )],
+  TransferFunctionModel[{{{
+     101 $CellContext`srr (1 + $CellContext`z)}}, {{$CellContext`srr (101 - 
+       2 $CellContext`srr + 101 $CellContext`z + 
+       2 $CellContext`srr $CellContext`z)}}}, $CellContext`z, 
+   SamplingPeriod -> $CellContext`srr^(-1)],
+  AutoDelete->True,
+  Editable->True]], "Output",
+ CellChangeTimes->{
+  3.57677741481033*^9, {3.5767775257557173`*^9, 3.576777566932007*^9}, 
+   3.576777606237468*^9, 3.576777664400688*^9, {3.576777717906452*^9, 
+   3.576777800015822*^9}, {3.5767778701717987`*^9, 3.576777917634864*^9}, {
+   3.576777949784347*^9, 3.576777980625812*^9}, 3.576778518734131*^9, {
+   3.576778577303689*^9, 3.576778585025364*^9}, 3.576778653550989*^9, 
+   3.576779326203541*^9, {3.5767795063335323`*^9, 3.576779532205289*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`bq$$ = 25, $CellContext`filtermodel$$ = 
+   DynamicModuleBox[{$CellContext`bq$$ = 30, $CellContext`filtermodel$$ = 
     ButterworthFilterModel, $CellContext`on$$ = True, $CellContext`onbw$$ = 
     True, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
@@ -231,20 +330,20 @@ Cell[BoxData[
        Hold[$CellContext`onbw$$], True, "Visa Filter"}, {True, False}}, {{
        Hold[$CellContext`filtermodel$$], ButterworthFilterModel, "Modell"}, {
       ButterworthFilterModel, BesselFilterModel, EllipticFilterModel}}}, 
-    Typeset`size$$ = {935., {262., 266.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {184., {31., 35.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`bq$514401$$ = 0, $CellContext`on$514402$$ = 
-    False, $CellContext`onbw$514403$$ = 
-    False, $CellContext`filtermodel$514404$$ = 0}, 
+    True, $CellContext`bq$67437$$ = 0, $CellContext`on$67438$$ = 
+    False, $CellContext`onbw$67439$$ = 
+    False, $CellContext`filtermodel$67440$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`bq$$ = 30, $CellContext`filtermodel$$ = 
         ButterworthFilterModel, $CellContext`on$$ = True, $CellContext`onbw$$ = 
         True}, "ControllerVariables" :> {
-        Hold[$CellContext`bq$$, $CellContext`bq$514401$$, 0], 
-        Hold[$CellContext`on$$, $CellContext`on$514402$$, False], 
-        Hold[$CellContext`onbw$$, $CellContext`onbw$514403$$, False], 
-        Hold[$CellContext`filtermodel$$, $CellContext`filtermodel$514404$$, 
+        Hold[$CellContext`bq$$, $CellContext`bq$67437$$, 0], 
+        Hold[$CellContext`on$$, $CellContext`on$67438$$, False], 
+        Hold[$CellContext`onbw$$, $CellContext`onbw$67439$$, False], 
+        Hold[$CellContext`filtermodel$$, $CellContext`filtermodel$67440$$, 
          0]}, "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -271,7 +370,7 @@ Cell[BoxData[
           "Modell"}, {
          ButterworthFilterModel, BesselFilterModel, EllipticFilterModel}}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{982., {346., 353.}},
+     ImageSizeCache->{409., {104., 111.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -280,219 +379,54 @@ Cell[BoxData[
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Input",
- CellChangeTimes->{{3.576322775218522*^9, 3.576322791176252*^9}}],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.57677741481033*^9, {3.5767775257557173`*^9, 3.576777566932007*^9}, 
+   3.576777606237468*^9, 3.576777664400688*^9, {3.576777717906452*^9, 
+   3.576777800015822*^9}, {3.5767778701717987`*^9, 3.576777917634864*^9}, {
+   3.576777949784347*^9, 3.576777980625812*^9}, 3.576778518734131*^9, {
+   3.576778577303689*^9, 3.576778585025364*^9}, 3.576778653550989*^9, 
+   3.576779326203541*^9, {3.5767795063335323`*^9, 3.576779532221662*^9}}],
+
+Cell["\<\
+TransferFunctionModel[{{{101*srr*(1 + z)}}, {{srr*(101 - 2*srr + 101*z + \
+2*srr*z)}}}, z, SamplingPeriod -> srr^(-1)]\
+\>", "Output",
+ CellChangeTimes->{
+  3.57677741481033*^9, {3.5767775257557173`*^9, 3.576777566932007*^9}, 
+   3.576777606237468*^9, 3.576777664400688*^9, {3.576777717906452*^9, 
+   3.576777800015822*^9}, {3.5767778701717987`*^9, 3.576777917634864*^9}, {
+   3.576777949784347*^9, 3.576777980625812*^9}, 3.576778518734131*^9, {
+   3.576778577303689*^9, 3.576778585025364*^9}, 3.576778653550989*^9, 
+   3.576779326203541*^9, {3.5767795063335323`*^9, 3.576779532391405*^9}}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322734407237*^9}],
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.5767806577382917`*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322734602195*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322734880879*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.5763227350622*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322745960876*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322746150468*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322746463409*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322746676366*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322749614753*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322749808648*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322750165403*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322750368232*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322765453454*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322765667796*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.5763227659978848`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"StateResponse", "::", "symb"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Computing exact or symbolic state response by iteration \
-may require substantial resources. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/StateResponse\\\", ButtonNote \
--> \\\"StateResponse::symb\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576322766219284*^9}]
-}, Open  ]],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.5763227074809523`*^9, 3.576322707523079*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.5763225824249973`*^9, 3.576322583649846*^9}, {
-  3.576322703486878*^9, 3.5763227044668827`*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.5763222539009113`*^9, 3.576322253995957*^9}, {
-  3.576322359407241*^9, 3.5763223607129107`*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.576321374115082*^9, 3.576321399554805*^9}, 
-   3.576321612066245*^9}]
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.576780657763888*^9}]
+}, Open  ]]
 },
-WindowSize->{1440, 884},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{956, 1061},
+WindowMargins->{{0, Automatic}, {4, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -507,30 +441,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 8325, 196, 601, "Input"],
 Cell[CellGroupData[{
-Cell[8907, 220, 3439, 63, 716, InheritFromParent],
-Cell[12349, 285, 477, 10, 23, "Message"],
-Cell[12829, 297, 477, 10, 23, "Message"],
-Cell[13309, 309, 477, 10, 23, "Message"],
-Cell[13789, 321, 475, 10, 23, "Message"],
-Cell[14267, 333, 477, 10, 23, "Message"],
-Cell[14747, 345, 477, 10, 23, "Message"],
-Cell[15227, 357, 477, 10, 23, "Message"],
-Cell[15707, 369, 477, 10, 23, "Message"],
-Cell[16187, 381, 477, 10, 23, "Message"],
-Cell[16667, 393, 477, 10, 23, "Message"],
-Cell[17147, 405, 477, 10, 23, "Message"],
-Cell[17627, 417, 477, 10, 23, "Message"],
-Cell[18107, 429, 477, 10, 23, "Message"],
-Cell[18587, 441, 477, 10, 23, "Message"],
-Cell[19067, 453, 479, 10, 23, "Message"],
-Cell[19549, 465, 477, 10, 23, "Message"]
-}, Open  ]],
-Cell[20041, 478, 94, 1, 30, InheritFromParent],
-Cell[20138, 481, 145, 2, 30, InheritFromParent],
-Cell[20286, 485, 145, 2, 30, InheritFromParent],
-Cell[20434, 489, 118, 2, 30, InheritFromParent]
+Cell[579, 22, 9354, 216, 716, "Input"],
+Cell[9936, 240, 1591, 33, 52, "Output"],
+Cell[11530, 275, 1955, 42, 57, "Output"],
+Cell[13488, 319, 3820, 69, 232, "Output"],
+Cell[17311, 390, 600, 10, 31, "Output"],
+Cell[17914, 402, 447, 10, 42, "Message"],
+Cell[18364, 414, 475, 10, 23, "Message"]
+}, Open  ]]
 }
 ]
 *)
