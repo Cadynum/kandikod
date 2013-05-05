@@ -9,8 +9,8 @@ const int cal_high = 3;
 
 const int pin_flex[] = {A0, A1, A2, A3, A4, A5};
 
-const int low_bound[] = {50, 30, 159, 50, 30, 30};
-const int high_bound[] = {98, 115, 90, 160, 120, 150};
+const int low_bound[] = {98, 115, 160, 90, 30, 30};
+const int high_bound[] = {50, 30, 50, 159, 120, 150};
 
 unsigned int ref_low[SENSORS];
 unsigned int ref_high[SENSORS];
