@@ -9,7 +9,7 @@ int main() {
 
     for (int i = 0; i < sizeof(data)/sizeof(data[0]); i++) {
         unsigned int dd = 1023-data[i];
-        printf("%u\n", butterworth(&state, dd));
+        printf("%u %u\n", dd, butterworth(&state, dd));
     }
 }
 
