@@ -10,8 +10,8 @@ const int cal_high = 3;
 
 const int pin_flex[] = {A0, A1, A2, A3, A4, A5};
 
-const int open_bound[] = {110, 85, 155, 150, 30, 35};
-const int closed_bound[] = {30, 27, 50, 45, 150, 150};
+const int open_bound[] = {110, 85, 155, 45, 30, 35};
+const int closed_bound[] = {30, 27, 50, 150, 150, 150};
 // const int open_bound[] = {98, 115, 160, 90, 30, 30};
 // const int closed_bound[] = {50, 30, 50, 159, 120, 150};
 
@@ -96,8 +96,8 @@ void loop_real() {
 	// tty.println(v2);
 
 	for (unsigned int i=0; i<SENSORS; i++) {
-		// int val = butterworth(filter_s+i, analogRead(pin_flex[i]));
-		int val = analogRead(pin_flex[i]);
+		unsigned int val = butterworth(filter_s+i, analogRead(pin_flex[i]));
+		// int val = analogRead(pin_flex[i]);
 		val = constrain(val, ref_open[i], ref_closed[i]);
 		ctl.flex[i] = map(val
 			, ref_open[i], ref_closed[i]

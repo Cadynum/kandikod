@@ -1,6 +1,6 @@
 #include <math.h>
 #include <stdio.h>
-#include "test_data.h"
+#include "test_data_flex.h"
 #include "butterworth.h"
 
 
@@ -9,7 +9,7 @@ int main() {
 
     for (int i = 0; i < sizeof(data)/sizeof(data[0]); i++) {
         unsigned int dd = 1023-data[i];
-        printf("%u %u\n", dd, butterworth(&state, dd));
+        printf("%4u : %4d\n", dd, butterworth(&state, dd));
     }
 }
 

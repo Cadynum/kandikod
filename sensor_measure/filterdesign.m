@@ -24,7 +24,8 @@ resp = Re[OutputResponse[sys, data]];
 ListLinePlot[{If[on, data], If[onbw, First[resp]]}
 , AxesOrigin->{0,0}
 , PlotRange->{{7, 10},{0, 1024}}
-,DataRange->{0, Length[data]/sr}]
+,DataRange->{0, Length[data]/sr}
+, Filling -> {1->{2}}]
 ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin->{0,0}]
 
 , {{bq, 30, "Brytfrekvens"}, 3, 50, 1}
@@ -35,3 +36,6 @@ ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin->{0,0}]
 (*ListLinePlot[resp, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[data, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin\[Rule]{0,0}]*)
+
+
+

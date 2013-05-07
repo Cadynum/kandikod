@@ -2,11 +2,11 @@
 
 ClearAll["Global`*"]
 sr = 100;
-data = 1023 -Import["~/kandikod/m\[ADoubleDot]tdata/samples", "List"];
-datapostDouble = Import["~/kandikod/m\[ADoubleDot]tdata/samples_filter_float", "List"];
-datapostInt = Import["~/kandikod/m\[ADoubleDot]tdata/samples_filter_uint", "List"];
+data = 1023 -Import["~/kandikod/m\[ADoubleDot]tdata/flex", "List"];
+(*datapostDouble = Import["~/kandikod/m\[ADoubleDot]tdata/samples_filter_float", "List"];*)
+datapostInt = Import["~/kandikod/m\[ADoubleDot]tdata/flex_unit", "List"];
 
-ListLinePlot[Abs[datapostInt - datapostDouble]
+ListLinePlot[{data, datapostInt}
 , AxesOrigin->{0,0}
 , PlotRange->Full
 , DataRange->{0, Length[data]/sr}
