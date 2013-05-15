@@ -1,13 +1,12 @@
 #include "butterworth.h"
+#include "constants.h"
 
+const unsigned long hz = 1000000/us_per_frame;
 
-const unsigned long hz = 100;
-// const double pi  = 3.14159265358979323846;
-const unsigned long bq = 188; //188; //round(10 * 2 * pi);
 
 unsigned int butterworth(bw_state *s, unsigned int x) {
 	
-    unsigned long ret = (bq*(((unsigned long)s->xp) + ((unsigned long)x)) - s->yp*(bq - 2*hz))/(bq+2*hz);
+    unsigned long ret = (breakfreq*(((unsigned long)s->xp) + ((unsigned long)x)) - s->yp*(breakfreq - 2*hz))/(breakfreq+2*hz);
     s->yp = ret;
     s->xp = x;
     return (unsigned int) ret;
