@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    267404,       5196]
-NotebookOptionsPosition[    266511,       5165]
-NotebookOutlinePosition[    266846,       5180]
-CellTagsIndexPosition[    266803,       5177]
+NotebookDataLength[    267656,       5202]
+NotebookOptionsPosition[    266793,       5171]
+NotebookOutlinePosition[    267128,       5186]
+CellTagsIndexPosition[    267085,       5183]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,7 +38,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"breakfreq", " ", "=", " ", 
    RowBox[{"IntegerPart", "[", 
-    RowBox[{"10", "*", "2", "*", "Pi"}], "]"}]}], 
+    RowBox[{"15", "*", "2", "*", "Pi"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -145,34 +145,31 @@ Cell[BoxData[{
       RowBox[{"data", "[", 
        RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"p0", " ", "=", " ", 
-   RowBox[{"ListPlot", "[", "\n", 
-    RowBox[{
-     RowBox[{"2", "*", 
+ RowBox[{"p0", " ", "=", " ", 
+  RowBox[{"ListPlot", "[", "\n", 
+   RowBox[{
+    RowBox[{"2", "*", 
+     RowBox[{
+      RowBox[{"Abs", "[", "totdft", "]"}], "/", "samples"}]}], "\n", ",", " ", 
+    RowBox[{"DataRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "  ", "sr"}], "}"}]}], "\n", ",", " ", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
       RowBox[{
-       RowBox[{"Abs", "[", "totdft", "]"}], "/", "samples"}]}], "\n", ",", 
-     " ", 
-     RowBox[{"DataRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"0", ",", "  ", "sr"}], "}"}]}], "\n", ",", " ", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", " ", 
-          RowBox[{"sr", "/", "2"}]}], "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], "\n", ",", " ", 
-     RowBox[{"ImageSize", "\[Rule]", "418"}], "\n", ",", " ", 
-     RowBox[{"Joined", "\[Rule]", "True"}], "\n", ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<Hz\>\"", ",", " ", "\"\<|Y(f)|\>\""}], "}"}]}], "\n", ",",
-      " ", 
-     RowBox[{"Filling", "\[Rule]", "Axis"}]}], "\n", "]"}]}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"sr", "/", "2"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], "\n", ",", " ", 
+    RowBox[{"ImageSize", "\[Rule]", "418"}], "\n", ",", " ", 
+    RowBox[{"Joined", "\[Rule]", "True"}], "\n", ",", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Hz\>\"", ",", " ", "\"\<|Y(f)|\>\""}], "}"}]}], "\n", ",", 
+    " ", 
+    RowBox[{"Filling", "\[Rule]", "Axis"}]}], "\n", 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"p1", " ", "=", " ", 
    RowBox[{"ListLinePlot", "[", 
@@ -246,11 +243,19 @@ Cell[BoxData[{
         RowBox[{"{", 
          RowBox[{"0", ",", " ", "100"}], "}"}], ",", "Full"}], "}"}]}]}], 
     "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<~/kandidat/Slutrapport/img/filter/flex_fourier.pdf\>\"", ",", " ", 
+   "p0"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<~/kandidat/Slutrapport/img/filter/flex_raw.pdf\>\"", ",", " ", "p1"}], 
+  "]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"(*", 
-   RowBox[{"Export", "[", 
-    RowBox[{"\"\<flex_raw.pdf\>\"", ",", " ", "p1"}], "]"}], 
-   "*)"}]}]}], "Input",
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\<~/kandidat/Slutrapport/img/filter/flex_filtered.pdf\>\"", ",", " ", 
+    "p2"}], "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.577610167365076*^9, 3.577610227284985*^9}, {
    3.577610282814999*^9, 3.577610338672907*^9}, {3.577610384299985*^9, 
    3.5776104008058167`*^9}, {3.577610442755167*^9, 3.577610448201316*^9}, {
@@ -287,7 +292,8 @@ Cell[BoxData[{
    3.577630629975909*^9, 3.577630655614703*^9}, {3.577630699166603*^9, 
    3.577630913155058*^9}, {3.5776309617943363`*^9, 3.577630973106038*^9}, {
    3.577631073960947*^9, 3.577631112138947*^9}, {3.57763116356707*^9, 
-   3.577631172846509*^9}, {3.5776312553382063`*^9, 3.5776312670609217`*^9}}],
+   3.577631172846509*^9}, {3.5776312553382063`*^9, 3.5776312670609217`*^9}, {
+   3.5776970541577463`*^9, 3.5776971372474833`*^9}}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -5180,24 +5186,24 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 10903, 267, 944, "Input"],
-Cell[11485, 291, 1414, 30, 52, "Output"],
-Cell[12902, 323, 67160, 1391, 226, "Output"],
-Cell[80065, 1716, 317, 5, 31, "Output"]
+Cell[579, 22, 11185, 273, 946, "Input"],
+Cell[11767, 297, 1414, 30, 52, "Output"],
+Cell[13184, 329, 67160, 1391, 226, "Output"],
+Cell[80347, 1722, 317, 5, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[80419, 1726, 14104, 240, 289, InheritFromParent],
-Cell[94526, 1968, 24222, 409, 277, "Output"],
-Cell[118751, 2379, 63225, 1048, 277, "Output"],
-Cell[181979, 3429, 15261, 258, 262, "Output"],
-Cell[197243, 3689, 1974, 40, 282, "Output"]
+Cell[80701, 1732, 14104, 240, 289, "Input"],
+Cell[94808, 1974, 24222, 409, 277, "Output"],
+Cell[119033, 2385, 63225, 1048, 277, "Output"],
+Cell[182261, 3435, 15261, 258, 262, "Output"],
+Cell[197525, 3695, 1974, 40, 250, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[199254, 3734, 83, 2, 30, "Input"],
-Cell[199340, 3738, 66963, 1418, 123, "Output"]
+Cell[199536, 3740, 83, 2, 30, "Input"],
+Cell[199622, 3744, 66963, 1418, 123, "Output"]
 }, Open  ]],
-Cell[266318, 5159, 94, 1, 30, InheritFromParent],
-Cell[266415, 5162, 92, 1, 30, InheritFromParent]
+Cell[266600, 5165, 94, 1, 30, "Input"],
+Cell[266697, 5168, 92, 1, 30, "Input"]
 }
 ]
 *)

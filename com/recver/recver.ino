@@ -1,22 +1,37 @@
+#include <math.h>
 #include <Servo.h>
 
 #include "com.h"
 #include "state.h"
 #include "butterworth.h"
+#include "angletodistance.h"
 
+
+//Pin definitioner
 #define tty Serial
 #define bt Serial1
-
 const int pin_servo[] = {2,3,4,5,6,7};
 const int pin_pressure[] = {A0, A1, A2};
+
+
 
 Servo servo[SENSORS];
 Control ctl;
 RobotHand rh;
 
+
+
+// Trycksensorer
+struct Pvalues_t {
+	double a, b, T;
+};
+unsigned int pressure[FINGERS];
+// Pvalues_t Pvalues[FINGERS] = {{670.301, 3.39387, 10}, {10, 10, 10}, {603.492, 3.64909}};
+Pvalues_t Pvalues[FINGERS] = {{670.301, 3.39387, 10}, {10, 10, 10}, {160, 1/0.57, 0.58}};
 bw_state p_state;
 
-unsigned int pressure[FINGERS];
+
+
 
 void setup() {
 	tty.begin(115200);
@@ -29,13 +44,21 @@ void setup() {
 
 void loop_real() {
 	benchmark();
-	for (unsigned i=0; i < FINGERS; i++) {
+/*	for (unsigned i=0; i < FINGERS; i++) {
 		pressure[i] = analogRead(pin_pressure[i]);
+		// double newton = Pvalues[i].b*log(Pvalues[i].a/(Pvalues[i].a-pressure[i]));
+		double newton = pow(pressure[i]/Pvalues[i].a, Pvalues[i].b);
+
+		// Pvalues[i].b*log(Pvalues[i].a/(Pvalues[i].a-pressure[i]));
+		// double newton = log(Pvalues[i].a - (double)pressure[i]);
 		tty.print(pressure[i]);
 		tty.print(" ");
-
+		tty.print(newton);
+		tty.print(" ");
 	}
-	tty.println();
+	tty.println();*/
+	tty.println(getdistance(&ctl));
+
 
 	//Send to controlglove
 	// send_bytes(&bt, (byte*)&rh, sizeof(rh));
