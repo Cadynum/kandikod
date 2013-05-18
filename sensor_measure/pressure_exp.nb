@@ -1,0 +1,269 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9014,        259]
+NotebookOptionsPosition[      8705,        243]
+NotebookOutlinePosition[      9040,        258]
+CellTagsIndexPosition[      8997,        255]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pekfinger", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.5", ",", "400"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "450"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.5", ",", "520"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "550"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.5", ",", "582"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "600"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.5", ",", "615"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "631"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.5", ",", "640"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "652"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5.5", ",", "666"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6", ",", "672"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6.5", ",", "683"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7", ",", "691"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7.5", ",", "702"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"langfinger", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.5", ",", "37"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "112"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.5", ",", "207"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "261"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.5", ",", "318"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "354"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.5", ",", "387"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "405"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.5", ",", "422"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "445"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5.5", ",", "470"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6", ",", "482"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6.5", ",", "500"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7", ",", "505"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7.5", ",", "514"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "527"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8.5", ",", "543"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"9", ",", "558"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"9.5", ",", "563"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10", ",", "578"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tumme", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0.5", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "112"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.5", ",", "217"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "295"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2.5", ",", "380"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "420"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3.5", ",", "455"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "476"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4.5", ",", "500"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"5", ",", "522"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"5.5", ",", "538"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"6", ",", "555"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"6.5", ",", "571"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "585"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7.5", ",", "595"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "600"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8.5", ",", "611"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"9", ",", "617"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"9.5", ",", "625"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "630"}], "}"}]}], "}"}]}], ";"}], "\n", 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "\t", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"p1", " ", "=", " ", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"a", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"Exp", "[", 
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{"(", 
+              RowBox[{"x", "-", "T"}], ")"}]}], "/", "b"}], "]"}]}], ")"}]}], 
+       " ", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "0", ",", " ", "20"}], "}"}]}], "]"}]}], ";", 
+    "\n", "\t", 
+    RowBox[{"p2", " ", "=", " ", 
+     RowBox[{"ListPlot", "[", "langfinger", "]"}]}], ";", "\n", "\t", 
+    RowBox[{"Show", "[", 
+     RowBox[{"p1", ",", " ", "p2", ",", "  ", 
+      RowBox[{"AxesOrigin", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "1023"}], "}"}]}], ",", " ", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Tryck (N)\>\"", ",", " ", "\"\<Sensor\>\""}], "}"}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\t", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", " ", "1", ",", " ", "1023"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", " ", "0.01", ",", " ", "10"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"T", ",", " ", "0", ",", " ", "10"}], "}"}]}], "]"}]}], "Code",
+ CellChangeTimes->{{3.577889960542808*^9, 3.577890067123115*^9}, {
+  3.577890112456243*^9, 3.5778901128413057`*^9}, {3.5778901916221313`*^9, 
+  3.577890217516988*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 844., $CellContext`b$$ = 
+    7.75, $CellContext`T$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 1023}, {
+      Hold[$CellContext`b$$], 0.01, 10}, {
+      Hold[$CellContext`T$$], 0, 10}}, Typeset`size$$ = {360., {103., 109.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`a$236363$$ = 0, $CellContext`b$236364$$ = 
+    0, $CellContext`T$236365$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`b$$ = 
+        0.01, $CellContext`T$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$236363$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$236364$$, 0], 
+        Hold[$CellContext`T$$, $CellContext`T$236365$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`p1 = 
+        Plot[$CellContext`a$$ (1 - 
+           Exp[(-($CellContext`x - $CellContext`T$$))/$CellContext`b$$]), \
+{$CellContext`x, 0, 20}]; $CellContext`p2 = ListPlot[$CellContext`langfinger]; 
+       Show[$CellContext`p1, $CellContext`p2, AxesOrigin -> {0, 0}, 
+         PlotRange -> {0, 1023}, AxesLabel -> {"Tryck (N)", "Sensor"}]), 
+      "Specifications" :> {{$CellContext`a$$, 1, 1023}, {$CellContext`b$$, 
+         0.01, 10}, {$CellContext`T$$, 0, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {204., 211.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.57789003202896*^9, 3.57789006757484*^9}, 
+   3.577890114280363*^9, {3.577890197320488*^9, 3.5778902178557243`*^9}}]
+}, Open  ]]
+},
+WindowSize->{956, 1061},
+WindowMargins->{{0, Automatic}, {4, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 5738, 170, 219, "Code"],
+Cell[6320, 194, 2369, 46, 432, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
