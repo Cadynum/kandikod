@@ -75,6 +75,6 @@ double getdistance(Control *ctl) {
 	double p3y_1=p2_1_y-(35*pow(10,-3))*sin(gamma);
 
 	// //uträkning av avstånd i [mm]
-	return sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3)-10;
+	return sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3);
 	// double dist_y = abs(abs(p3_x)-abs(p3x_1))*pow(10,3);
 }
