@@ -10,8 +10,8 @@ langopt = {285, 1.42, 0.305};
 tummeopt = {381, 1.7, 0.22};
 pekfingeropt = {480, 0.01, 0.188};
 
-finger = pekfinger;
-opt = pekfingeropt;
+finger = langfinger;
+opt = langfingeropt;
 
 langinv = Reverse /@ finger;
 f[x_, a_, b_ ,d_] := a(1-Exp[-(x)/b]) * x^d;
@@ -28,23 +28,23 @@ Manipulate[
 	s1 = Show[ p1,p2
 			, AxesOrigin->{0,0}
 			, PlotRange->{0, 1023}
-			, AxesLabel->{"Tryck (N)", "Sensor"}
+			, AxesLabel->{"Kraft (N)", "Sensor"}
 			, ImageSize->418/2
 			];
 	s2 = Show[ pi1, pi2
 			, AxesOrigin -> {0,0}
 			, PlotRange -> {{0, 1024}, {0, 20}}
-			, AxesLabel->{"Sensor", "Tryck (N)"}
+			, AxesLabel->{"Sensor", "Kraft (N)"}
 			, ImageSize->418/2
 		];
-(*	Export["~/kandidat/Slutrapport/img/tryck/before.pdf", s1];
-	Export["~/kandidat/Slutrapport/img/tryck/after.pdf", s2];*)
+	Export["~/kandidat/Slutrapport/img/tryck/before.pdf", s1];
+	Export["~/kandidat/Slutrapport/img/tryck/after.pdf", s2];
 	GraphicsColumn[{s1, s2}]
 	, {{a, 285}, 1, 1023}, {{b, 1.42}, 0.01, 10}, {{d, 0.305}, 0.01, 1}
 ]
 
-Table[inv[n, opt[[1]], opt[[2]], opt[[3]]], {n, 0, 1023}];
-Export["~/kandikod/m\[ADoubleDot]tdata/tryckinvers/pekfinger.m", %]
+(*Table[inv[n, opt[[1]], opt[[2]], opt[[3]]], {n, 0, 1023}];
+Export["~/kandikod/m\[ADoubleDot]tdata/tryckinvers/pekfinger.m", %]*)
 
 
 

@@ -6,10 +6,16 @@
 #define tty Serial
 #define bt Serial1
 
+#define DEBUG
+#define LEDBAR 8
 
 const int pin_flex[] = {A0, A1, A2, A3, A4, A5};
 const int pin_cal_open = 5;
 const int pin_cal_closed = 3;
+
+const int led_clk = 0;
+const int led_rst = 0;
+const int led_data[] = {0,1,2};
 
 const int open_bound[] = {110, 85, 155, 45, 30, 35};
 const int closed_bound[] = {30, 27, 50, 150, 150, 150};
@@ -19,12 +25,21 @@ unsigned int ref_open[SENSORS];
 unsigned int ref_closed[SENSORS];
 struct bw_state filter_s[SENSORS];
 Control ctl;
+RobotHand rh;
 
 
 
 void setup() {
 	pinMode(pin_cal_open, INPUT);
 	pinMode(pin_cal_closed, INPUT);
+	pinMode(led_clk, OUTPUT);
+	pinMode(led_rst, OUTPUT);
+	for(unsigned i=0; i != FINGERS; i++) {
+		pinMode(led_data[i], OUTPUT);
+	}
+	digitalWrite(led_clk, 0);
+	digitalWrite(led_rst, 0);
+	digitalWrite(led_rst, 1);
 	tty.begin(115200);
 	bt.begin(115200);
 }
@@ -85,18 +100,18 @@ void loop_real() {
 		for (unsigned int i=0; i<SENSORS; i++) {
 			ref_open[i] = analogRead(pin_flex[i]);
 		}
-		// tty.println("LOcal");
+		#ifdef DEBUG
 		printcal();
+		#endif
 	} else if (!v2) {
 		for (unsigned int i=0; i<SENSORS; i++) {
 			ref_closed[i] = analogRead(pin_flex[i]);
 		}
-		// tty.println("HIcal");
+		#ifdef DEBUG
 		printcal();
+		#endif
 	}
-	// tty.print(v1);
-	// tty.print(' ');
-	// tty.println(v2);
+
 
 	for (unsigned int i=0; i<SENSORS; i++) {
 		unsigned int val = butterworth(filter_s+i, analogRead(pin_flex[i]));
@@ -107,6 +122,18 @@ void loop_real() {
 			, open_bound[i], closed_bound[i]);
 	}
 
-
 	send_bytes(&bt, (byte*)&ctl, sizeof(ctl));
+
+	// Recieve force
+	if (recv_bytes(&bt, (byte*)&rh, sizeof(rh))) {
+		for(unsigned k=0; k != LEDBAR; k++) {
+			for(unsigned i=0; i != FINGERS; i++) {
+				digitalWrite(led_data[i], rh.force[i] != 0);
+				if (rh.force[i] != 0)
+					rh.force[i]--;
+			}
+			digitalWrite(led_clk, 1);
+			digitalWrite(led_clk, 0);
+		}
+	}
 }

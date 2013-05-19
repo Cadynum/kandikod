@@ -15,19 +15,15 @@ const int pin_servo[] = {2,3,4,5,6,7};
 const int pin_pressure[] = {A0, A1, A2};
 
 
-
 Servo servo[SENSORS];
 Control ctl;
 RobotHand rh;
 
 
 
+
 // Trycksensorer
-// Pvalues_t Pvalues[FINGERS] = {{670.301, 3.39387, 10}, {10, 10, 10}, {603.492, 3.64909}};
-// Pvalues_t Pvalues[FINGERS] = {{670.301, 3.39387, 10}, {10, 10, 10}, {160, 1/0.57, 0.58}};
 bw_state p_state;
-
-
 
 
 void setup() {
@@ -49,7 +45,7 @@ void loop_real() {
 		tty.print(" ");
 		tty.print(newton);
 		tty.print(" ");
-		rh.force = (byte)(newton+0.5);
+		rh.force[i] = (byte)(newton+0.5);
 	}
 	tty.println();
 	// tty.println(getdistance(&ctl));
