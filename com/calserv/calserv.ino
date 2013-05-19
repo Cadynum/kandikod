@@ -2,6 +2,7 @@
 
 #include "com.h"
 #include "state.h"
+#include "angletodistance.h"
 
 
 #define tty Serial
@@ -30,6 +31,7 @@ void loop() {
 	}
 	if (s >= 0 && s < SENSORS) {
 		servo[s].write(ang);
+		ctl.flex[s] = ang;
 		tty.print("Set servo ");
 		tty.print(s);
 		tty.print(" ang: ");
@@ -40,6 +42,7 @@ void loop() {
 		s = -1;
 		ang = 0;
 	}
+	tty.println(getdistance(&ctl));
 
 	// while (bt.available()) {
 	// 	tty.print(bt.read());
