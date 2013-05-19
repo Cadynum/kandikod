@@ -49,13 +49,14 @@ void loop_real() {
 		tty.print(" ");
 		tty.print(newton);
 		tty.print(" ");
+		rh.force = (byte)(newton+0.5);
 	}
 	tty.println();
 	// tty.println(getdistance(&ctl));
 
 
 	//Send to controlglove
-	// send_bytes(&bt, (byte*)&rh, sizeof(rh));
+	send_bytes(&bt, (byte*)&rh, sizeof(rh));
 
 	// Recieve from controlglove
 	if (recv_bytes(&bt, (byte*)&ctl, sizeof(ctl))) {

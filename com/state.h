@@ -12,5 +12,5 @@ struct Control {
 };
 
 struct RobotHand {
-	byte pressure[FINGERS];
+	byte force[FINGERS];
 };
