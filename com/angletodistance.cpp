@@ -1,12 +1,12 @@
-#include <math.h>
+﻿#include <math.h>
 
 #include "state.h"
 
-const double led1tumme=52*pow(10,-3); //första leden i tummen
-const double r1=13*pow(10,-3);        //radie för tumme
-const double L=35*pow(10,-3);         //Längden på tummens andra led
-const double L1_1=52*pow(10,-3);       //led 1 finger 1
-const double L2_1=52*pow(10,-3);       //led 2 finger 1 
+const double led1tumme=45*pow(10,-3); //(52)första leden i tummen
+const double r1=8*pow(10,-3);        //(13)radie för tumme
+const double L=30*pow(10,-3);         //(52)Längden på tummens andra led
+const double L1_1=45*pow(10,-3);       //(52)led 1 finger 1
+const double L2_1=45*pow(10,-3);       //(52)led 2 finger 1 
 const double ps_f1[]={-67*pow(10,-3),27*pow(10,-3)};  //startposition för finger 1
 const double pi=3.14159265359;
 
@@ -71,10 +71,10 @@ double getdistance(Control *ctl) {
 
 	// //Ytterpunkt på pekfinger
 	double gamma=(beta_1*(180/pi)+(((s4-45)/105))*90)*(pi/180);
-	double p3x_1=p2_1_x-(35*pow(10,-3))*cos(gamma);
-	double p3y_1=p2_1_y-(35*pow(10,-3))*sin(gamma);
+	double p3x_1=p2_1_x-(30*pow(10,-3))*cos(gamma);
+	double p3y_1=p2_1_y-(30*pow(10,-3))*sin(gamma);
 
 	// //uträkning av avstånd i [mm]
-	return sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3);
+	return sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3)-10;
 	// double dist_y = abs(abs(p3_x)-abs(p3x_1))*pow(10,3);
 }
