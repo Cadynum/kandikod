@@ -15,7 +15,7 @@ const int pin_cal_closed = 3;
 
 const int led_clk = 12;
 const int led_rst = 11;
-const int led_data[] = {10,9,8};
+const int led_data[] = {8,9,10};
 
 const int open_bound[] = {110, 85, 155, 45, 30, 35};
 const int closed_bound[] = {30, 27, 50, 150, 150, 150};

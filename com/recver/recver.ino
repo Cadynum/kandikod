@@ -97,14 +97,17 @@ void loop_real() {
 
 	// Recieve from controlglove
 	if (recv_bytes(&bt, (byte*)&ctl, sizeof(ctl))) {
+		for(unsigned i = 0; i < SENSORS; i++) {
+			servo[i].write(ctl.flex[i]);
+		}
 		// double maxforce = max(force[0], force[1]);
 		// double dist = getdistance(&ctl);
 
 		// if (!object_stop(dist, maxforce)) {
-			servo[0].write(ctl.flex[0]);
-			servo[1].write(ctl.flex[1]);
-		// }
-		servo[2].write(ctl.flex[2]);
+		// 	servo[0].write(ctl.flex[0]);
+		// 	servo[1].write(ctl.flex[1]);
+		// // }
+		// servo[2].write(ctl.flex[2]);
 	}
 }
 
