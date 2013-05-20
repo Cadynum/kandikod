@@ -5,15 +5,16 @@ SetOptions[{Plot,ParametricPlot, ListLinePlot, ListPlot},BaseStyle->{FontFamily-
 
 data = 1023-Import["~/kandikod/m\[ADoubleDot]tdata/samples", "List"];
 sr = 100;
-(*ListPlot[
+dft = ListPlot[
 2*Abs[Fourier[data]]/Length[data]
-, DataRange\[Rule]{0,  sr}
-, PlotRange\[Rule]{{0, 50}, {0, 1}}
-, ImageSize\[Rule]418
-, Joined\[Rule]True
-,AxesLabel\[Rule]{"Hz", "|Y(f)|"}
-, Filling\[Rule]Axis
-]*)
+, DataRange->{0,  sr}
+, PlotRange->{{0, 50}, {0, 1}}
+, ImageSize->350
+, Joined->True
+,AxesLabel->{"Hz", "|Y(f)|"}
+, Filling->Axis
+]
+Export["~/kandidat/Slutrapport/img/filter/tryck_fourier.pdf", dft]
 ButterworthFilterModel[{1, 101}, s]
 ToDiscreteTimeModel[%, 1/srr, z]
 % //InputForm
@@ -36,6 +37,9 @@ ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin->{0,0}]
 (*ListLinePlot[resp, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[data, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin\[Rule]{0,0}]*)
+
+
+
 
 
 

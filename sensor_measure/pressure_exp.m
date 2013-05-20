@@ -29,13 +29,13 @@ Manipulate[
 			, AxesOrigin->{0,0}
 			, PlotRange->{0, 1023}
 			, AxesLabel->{"Kraft (N)", "Sensor"}
-			, ImageSize->300
+			, ImageSize->350
 			];
 	s2 = Show[ pi1, pi2
 			, AxesOrigin -> {0,0}
 			, PlotRange -> {{0, 1024}, {0, 20}}
 			, AxesLabel->{"Sensor", "Kraft (N)"}
-			, ImageSize->300
+			, ImageSize->350
 		];
 	Export["~/kandidat/Slutrapport/img/tryck/before.pdf", s1];
 	Export["~/kandidat/Slutrapport/img/tryck/after.pdf", s2];
