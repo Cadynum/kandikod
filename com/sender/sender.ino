@@ -13,9 +13,9 @@ const int pin_flex[] = {A0, A1, A2, A3, A4, A5};
 const int pin_cal_open = 5;
 const int pin_cal_closed = 3;
 
-const int led_clk = 0;
-const int led_rst = 0;
-const int led_data[] = {0,1,2};
+const int led_clk = 12;
+const int led_rst = 11;
+const int led_data[] = {10,9,8};
 
 const int open_bound[] = {110, 85, 155, 45, 30, 35};
 const int closed_bound[] = {30, 27, 50, 150, 150, 150};
@@ -25,7 +25,7 @@ unsigned int ref_open[SENSORS];
 unsigned int ref_closed[SENSORS];
 struct bw_state filter_s[SENSORS];
 Control ctl;
-RobotHand rh;
+RobotHand rh, rh_old;
 
 
 
@@ -93,7 +93,7 @@ void loop() {
 }
 
 void loop_real() {
-	benchmark();
+	// benchmark();
 	int v1 = digitalRead(pin_cal_open);
 	int v2 = digitalRead(pin_cal_closed);
 	if (!v1) {
@@ -125,13 +125,19 @@ void loop_real() {
 	send_bytes(&bt, (byte*)&ctl, sizeof(ctl));
 
 	// Recieve force
-	if (recv_bytes(&bt, (byte*)&rh, sizeof(rh))) {
+	if (recv_bytes(&bt, (byte*)&rh, sizeof(rh)) && !(rh == rh_old)) {
+		rh_old = rh;
+		
+		digitalWrite(led_rst, 0);
+		digitalWrite(led_rst, 1);
 		for(unsigned k=0; k != LEDBAR; k++) {
-			for(unsigned i=0; i != FINGERS; i++) {
-				digitalWrite(led_data[i], rh.force[i] != 0);
-				if (rh.force[i] != 0)
-					rh.force[i]--;
-			}
+			//unrolled to optimize by reducing flicker
+			digitalWrite(led_data[0], rh.force[0] & 1);
+			digitalWrite(led_data[1], rh.force[1] & 1);
+			digitalWrite(led_data[2], rh.force[2] & 1);
+			rh.force[0] >>= 1;
+			rh.force[1] >>= 1;
+			rh.force[2] >>= 1;
 			digitalWrite(led_clk, 1);
 			digitalWrite(led_clk, 0);
 		}

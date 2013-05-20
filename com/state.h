@@ -13,4 +13,13 @@ struct Control {
 
 struct RobotHand {
 	byte force[FINGERS];
+
+	inline bool operator==(const RobotHand& rhs) const
+	{
+		for (unsigned i=0; i != FINGERS; i++) {
+			if (force[i] != rhs.force[i])
+				return false;
+		}
+		return true;
+	}
 };

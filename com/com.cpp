@@ -1,7 +1,7 @@
 #include "com.h"
 
 #define SYNC_LEN (sizeof(sync))
-const byte sync[] = {0xFF, 'S', 'Y', 'N', 0xFF};
+const byte sync[] = {0xFF, 'S', 'Y'};
 // const byte sync[] = {'S', 'Y', 'N'};
 
 
