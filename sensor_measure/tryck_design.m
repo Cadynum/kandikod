@@ -22,7 +22,7 @@ dft = ListPlot[
 
 sys =ToDiscreteTimeModel[ButterworthFilterModel[{1, bq*2 Pi}], 1/srr, z] //N;
 resp = RecurrenceFilter[sys, data];
-p0 = ListLinePlot[{data, resp+0.05}
+p0 = ListLinePlot[{ArrayPad[data, {10, 0}], resp}
 	(*, AxesOrigin->{0,0}*)
 	, PlotRange->{{8.2, 9.2},{400*3.3/1024, 700*3.3/1024}}
 	, DataRange-> {0, Length[data]/srr}
@@ -32,11 +32,14 @@ p0 = ListLinePlot[{data, resp+0.05}
 (*	, Axes \[Rule] {True, False}*)
 (*	, Ticks \[Rule] {Automatic, {{400, "39%"}, {700, "68%"}}}*)
 ]
-Export["~/kandidat/Slutrapport/img/filter/flex_fourier.pdf", dft]
+(*Export["~/kandidat/Slutrapport/img/filter/flex_fourier.pdf", dft]*)
 (*Export["~/kandidat/Slutrapport/img/filter/tryck_dubbel.pdf", p0];*)
 (*ListLinePlot[resp, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[data, AxesOrigin\[Rule]{0,0}]
 ListLinePlot[Re[OutputResponse[sys, Array[UnitStep,  sr]]], AxesOrigin\[Rule]{0,0}]*)
+
+
+
 
 
 
