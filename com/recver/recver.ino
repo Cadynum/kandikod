@@ -45,7 +45,7 @@ float force[FINGERS];
 
 
 // Trycksensorer
-bw_state p_state;
+bw_state bw[FINGERS];
 
 
 void setup() {
@@ -60,11 +60,11 @@ bool half = false;
 void loop_real() {
 	// benchmark();
 	for (unsigned i=0; i < FINGERS; i++) {
-		unsigned volt = analogRead(pin_pressure[i]);
+		unsigned volt = butterworth(bw+i, analogRead(pin_pressure[i]));
 		float newton = voltage_to_force[i][volt];
 
-		// tty.print(volt);
-		// tty.print(" ");
+		tty.print(volt);
+		tty.print(" ");
 		// tty.print(newton);
 		// tty.print(" ");
 		rh.force[i] = led_table[
@@ -75,8 +75,6 @@ void loop_real() {
 		// tty.print(rh.force[i]);
 		// tty.print(' ');
 	}
-	// tty.println();
-	// 
 
 	Tuple tpl = getdistance(&ctl);
 	tty.print(tpl.a);
