@@ -78,20 +78,23 @@ void loop_real() {
 	// tty.println();
 	// 
 
-
+	Tuple tpl = getdistance(&ctl);
+	tty.print(tpl.a);
+	tty.print(' ');
+	tty.println(tpl.b);
 
 
 	//Send to controlglove
 	if (half) {
 		send_bytes(&bt, (byte*)&rh, sizeof(rh));
-		tty.print(sizeof(rh));
-		tty.print(' ');
-		tty.print(rh.force[0]);
-		tty.print(' ');
-		tty.print(rh.force[1]);
-		tty.print(' ');
-		tty.print(rh.force[2]);
-		tty.println();
+		// tty.print(sizeof(rh));
+		// tty.print(' ');
+		// tty.print(rh.force[0]);
+		// tty.print(' ');
+		// tty.print(rh.force[1]);
+		// tty.print(' ');
+		// tty.print(rh.force[2]);
+		// tty.println();
 	}
 	half = !half;
 

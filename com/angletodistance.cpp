@@ -1,6 +1,7 @@
 ﻿#include <math.h>
 
 #include "state.h"
+#include "angletodistance.h"
 
 const double led1tumme=52*pow(10,-3); //(52)första leden i tummen
 const double r1=13*pow(10,-3);        //(13)radie för tumme
@@ -33,7 +34,7 @@ const double p_y_p3[]={-0.001728424220925,0.011211390407059,-0.002638004774439,-
 // 		return x;
 // }
 
-double getdistance(Control *ctl) {
+Tuple getdistance(Control *ctl) {
 	//Definerar servovinklar
 	double s1=ctl->flex[0];   //Servovinkel 1
 	double s2=ctl->flex[1];   //Servovinkel 2
@@ -75,6 +76,7 @@ double getdistance(Control *ctl) {
 	double p3y_1=p2_1_y-(35*pow(10,-3))*sin(gamma);
 
 	// //uträkning av avstånd i [mm]
-	return sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3);
-	// double dist_y = abs(abs(p3_x)-abs(p3x_1))*pow(10,3);
+	return Tuple { sqrt(pow(p3_x-p3x_1,2)+pow(p3_y-p3y_1,2))*pow(10,3)
+				 , abs(abs(p3_x)-abs(p3x_1))*pow(10,3)
+				};
 }

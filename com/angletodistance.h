@@ -1,3 +1,8 @@
 #pragma once
 #include "state.h"
-double getdistance(Control *ctl);
+
+struct Tuple {
+	double a, b;
+};
+
+Tuple getdistance(Control *ctl);
