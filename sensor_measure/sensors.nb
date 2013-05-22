@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     19374,        448]
-NotebookOptionsPosition[     18855,        427]
-NotebookOutlinePosition[     19190,        442]
-CellTagsIndexPosition[     19147,        439]
+NotebookDataLength[     28217,        658]
+NotebookOptionsPosition[     27069,        622]
+NotebookOutlinePosition[     27403,        637]
+CellTagsIndexPosition[     27360,        634]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -330,7 +330,7 @@ Cell[BoxData[
        Hold[$CellContext`onbw$$], True, "Visa Filter"}, {True, False}}, {{
        Hold[$CellContext`filtermodel$$], ButterworthFilterModel, "Modell"}, {
       ButterworthFilterModel, BesselFilterModel, EllipticFilterModel}}}, 
-    Typeset`size$$ = {184., {31., 35.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {184., {27., 32.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
     True, $CellContext`bq$67437$$ = 0, $CellContext`on$67438$$ = 
     False, $CellContext`onbw$67439$$ = 
@@ -350,7 +350,7 @@ Cell[BoxData[
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> ($CellContext`sys = N[
           ToDiscreteTimeModel[
-           $CellContext`filtermodel$$[{1, $CellContext`bq$$ 2 Pi}], 
+           $CellContext`filtermodel$$[{1, ($CellContext`bq$$ 2) Pi}], 
            1/$CellContext`sr, $CellContext`z]]; $CellContext`resp = Re[
           OutputResponse[$CellContext`sys, $CellContext`data]]; 
        ListLinePlot[{
@@ -370,7 +370,7 @@ Cell[BoxData[
           "Modell"}, {
          ButterworthFilterModel, BesselFilterModel, EllipticFilterModel}}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{409., {104., 111.}},
+     ImageSizeCache->{409., {101., 108.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -422,11 +422,206 @@ ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
 \[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
 \\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.576780657763888*^9}]
+ CellChangeTimes->{3.576780657763888*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578214023461783*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578214023513482*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Range", "::", "range"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Range specification in \[NoBreak]\\!\\(Range[\\(\\(0.`, 0, \
+Indeterminate\\)\\)]\\)\[NoBreak] does not have appropriate bounds. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Range/range\\\", \
+ButtonNote -> \\\"Range::range\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578214023528007*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Transpose", "::", "nmtx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The first two levels of the one-dimensional list \
+\[NoBreak]\\!\\({\\(\\(Range[\\(\\(0.`, 0, Indeterminate\\)\\)]\\)\\), \
+\\(\\({\\(\\(0.` \[VeryThinSpace]\\)\\) + \\(\\(188.49555921538757`\\\\ \
+\\(\\(Re[\\(\\(\\(data\\\\ sr\\)\\/\\(Plus[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)]\\)\\)\\)\\)}\\)\\)}\\)\[NoBreak] cannot be \
+transposed. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Transpose/nmtx\\\", ButtonNote -> \
+\\\"Transpose::nmtx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578214023562566*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Array", "::", "ilsmn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Single or list of non-negative machine-sized integers \
+expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\(Array[\
+\\(\\(UnitStep, sr\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ilsmn\\\", ButtonNote -> \
+\\\"Array::ilsmn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.5782140236137342`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217073802279*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.5782170738413973`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Range", "::", "range"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Range specification in \[NoBreak]\\!\\(Range[\\(\\(0.`, 0, \
+Indeterminate\\)\\)]\\)\[NoBreak] does not have appropriate bounds. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Range/range\\\", \
+ButtonNote -> \\\"Range::range\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217073862831*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Transpose", "::", "nmtx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The first two levels of the one-dimensional list \
+\[NoBreak]\\!\\({\\(\\(Range[\\(\\(0.`, 0, Indeterminate\\)\\)]\\)\\), \
+\\(\\({\\(\\(0.` \[VeryThinSpace]\\)\\) + \\(\\(188.49555921538757`\\\\ \
+\\(\\(Re[\\(\\(\\(data\\\\ sr\\)\\/\\(Plus[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)]\\)\\)\\)\\)}\\)\\)}\\)\[NoBreak] cannot be \
+transposed. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Transpose/nmtx\\\", ButtonNote -> \
+\\\"Transpose::nmtx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217073884301*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Array", "::", "ilsmn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Single or list of non-negative machine-sized integers \
+expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\(Array[\
+\\(\\(UnitStep, sr\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ilsmn\\\", ButtonNote -> \
+\\\"Array::ilsmn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217073931117*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217099645945*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Infinity", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \[NoBreak]\\!\\(0\\\\ \
+ComplexInfinity\\)\[NoBreak] encountered. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/indet\\\", ButtonNote -> \
+\\\"Infinity::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217099668405*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Range", "::", "range"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Range specification in \[NoBreak]\\!\\(Range[\\(\\(0.`, 0, \
+Indeterminate\\)\\)]\\)\[NoBreak] does not have appropriate bounds. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Range/range\\\", \
+ButtonNote -> \\\"Range::range\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217099670107*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Transpose", "::", "nmtx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The first two levels of the one-dimensional list \
+\[NoBreak]\\!\\({\\(\\(Range[\\(\\(0.`, 0, Indeterminate\\)\\)]\\)\\), \
+\\(\\({\\(\\(0.` \[VeryThinSpace]\\)\\) + \\(\\(188.49555921538757`\\\\ \
+\\(\\(Re[\\(\\(\\(data\\\\ sr\\)\\/\\(Plus[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)]\\)\\)\\)\\)}\\)\\)}\\)\[NoBreak] cannot be \
+transposed. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Transpose/nmtx\\\", ButtonNote -> \
+\\\"Transpose::nmtx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217099672011*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Array", "::", "ilsmn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Single or list of non-negative machine-sized integers \
+expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\(Array[\
+\\(\\(UnitStep, sr\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ilsmn\\\", ButtonNote -> \
+\\\"Array::ilsmn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.578217099737317*^9}]
 }, Open  ]]
 },
-WindowSize->{956, 1061},
-WindowMargins->{{0, Automatic}, {4, Automatic}},
+WindowSize->{587, 438},
+WindowMargins->{{Automatic, 4}, {4, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -442,13 +637,28 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 9354, 216, 716, "Input"],
+Cell[579, 22, 9354, 216, 887, "Input"],
 Cell[9936, 240, 1591, 33, 52, "Output"],
-Cell[11530, 275, 1955, 42, 57, "Output"],
-Cell[13488, 319, 3820, 69, 232, "Output"],
-Cell[17311, 390, 600, 10, 31, "Output"],
-Cell[17914, 402, 447, 10, 42, "Message"],
-Cell[18364, 414, 475, 10, 23, "Message"]
+Cell[11530, 275, 1955, 42, 58, "Output"],
+Cell[13488, 319, 3822, 69, 226, "Output"],
+Cell[17313, 390, 600, 10, 31, "Output"],
+Cell[17916, 402, 447, 10, 42, "Message"],
+Cell[18366, 414, 475, 10, 23, "Message"],
+Cell[18844, 426, 445, 10, 42, "Message"],
+Cell[19292, 438, 475, 10, 23, "Message"],
+Cell[19770, 450, 505, 10, 41, "Message"],
+Cell[20278, 462, 743, 14, 65, "Message"],
+Cell[21024, 478, 555, 11, 41, "Message"],
+Cell[21582, 491, 445, 10, 42, "Message"],
+Cell[22030, 503, 477, 10, 23, "Message"],
+Cell[22510, 515, 505, 10, 41, "Message"],
+Cell[23018, 527, 743, 14, 65, "Message"],
+Cell[23764, 543, 553, 11, 59, "Message"],
+Cell[24320, 556, 445, 10, 42, "Message"],
+Cell[24768, 568, 475, 10, 23, "Message"],
+Cell[25246, 580, 505, 10, 59, "Message"],
+Cell[25754, 592, 743, 14, 85, "Message"],
+Cell[26500, 608, 553, 11, 59, "Message"]
 }, Open  ]]
 }
 ]

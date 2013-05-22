@@ -38,7 +38,7 @@ const byte led_table[] =
 const unsigned led_table_len = sizeof(led_table);
 
 Servo servo[SENSORS];
-Control ctl;
+Control ctl, ctl_actual;
 RobotHand rh;
 
 float force[FINGERS];
@@ -63,53 +63,48 @@ void loop_real() {
 		unsigned volt = butterworth(bw+i, analogRead(pin_pressure[i]));
 		float newton = voltage_to_force[i][volt];
 
-		tty.print(volt);
-		tty.print(" ");
-		// tty.print(newton);
-		// tty.print(" ");
 		rh.force[i] = led_table[
 			min(led_table_len-1, (unsigned)(newton+0.5))
 			];
 		force[i] = newton;
-		// tty.print(" ");
-		// tty.print(rh.force[i]);
-		// tty.print(' ');
 	}
-
-	Tuple tpl = getdistance(&ctl);
-	tty.print(tpl.a);
-	tty.print(' ');
-	tty.println(tpl.b);
-
 
 	//Send to controlglove
 	if (half) {
 		send_bytes(&bt, (byte*)&rh, sizeof(rh));
-		// tty.print(sizeof(rh));
-		// tty.print(' ');
-		// tty.print(rh.force[0]);
-		// tty.print(' ');
-		// tty.print(rh.force[1]);
-		// tty.print(' ');
-		// tty.print(rh.force[2]);
-		// tty.println();
 	}
 	half = !half;
+	
 
+	byte lock = 0;
+	double dist;
+	double dist_actual = getdistance(&ctl_actual).b;
 	// Recieve from controlglove
 	if (recv_bytes(&bt, (byte*)&ctl, sizeof(ctl))) {
-		for(unsigned i = 0; i < SENSORS; i++) {
-			servo[i].write(ctl.flex[i]);
+		double maxforce = max(force[0], force[1]);
+		dist = getdistance(&ctl).b;
+		if (!object_stop(dist, maxforce)) {
+			for(unsigned i = 0; i < SENSORS; i++) {
+				servo[i].write(ctl.flex[i]);
+			}
+			ctl_actual = ctl;
+		} else {
+			lock = 1;
 		}
-		// double maxforce = max(force[0], force[1]);
-		// double dist = getdistance(&ctl);
-
-		// if (!object_stop(dist, maxforce)) {
-		// 	servo[0].write(ctl.flex[0]);
-		// 	servo[1].write(ctl.flex[1]);
-		// // }
-		// servo[2].write(ctl.flex[2]);
+	} else {
+		dist = dist_actual;
 	}
+
+	tty.print(force[0]);
+	tty.print(' ');
+	tty.print(force[1]);
+	tty.print(' ');
+	tty.print(dist);
+	tty.print(' ');	
+	tty.print(dist_actual);
+	tty.print(' ');
+	tty.print(lock);
+	tty.println();
 }
 
 /* Assumes frames are always faster than 10000us. (which they are)
